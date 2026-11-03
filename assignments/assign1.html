@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<HEAD>
+<TITLE>HTML TAGS INTRODUCTION</TITLE>
+<style>
+  .tag { background-color: #ffffff; border: 1px solid #cbd5e1; border-left: 6px solid #2563eb; margin-bottom: 18px; }
+  .row { display: grid; grid-template-columns: 110px 1fr; gap: 12px; padding: 10px 16px; border-top: 1px solid #e2e8f0; align-items: start; }
+  .row:first-child { border-top: none; background-color: #eff6ff; }
+  .label { font-size: 12px; font-weight: bold; letter-spacing: 1px; color: #64748b; padding-top: 3px; }
+  .tag-value { font-size: 22px; font-weight: bold; color: #1e3a8a; }
+  .name-value { font-size: 17px; font-weight: bold; }
+  .attrs { margin-top: 6px; font-size: 13px; color: #64748b; }
+  .out { padding: 8px; border: 1px dashed #94a3b8; background-color: #f8fafc; }
+  code { background-color: #e2e8f0; padding: 1px 4px; }
+  .tag-value code { background: none; padding: 0; }
+</style>
+</HEAD>
+<BODY style="background-color: #f4f6f9; font-family: Arial, sans-serif; color: #333; padding: 20px;">
+
+  <!-- 1 -->
+  <div class="tag">
+    <div class="row"><div class="label">TAG</div><div class="tag-value"><code>&lt;h1&gt; to &lt;h6&gt;</code></div></div>
+    <div class="row"><div class="label">NAME</div><div class="name-value">Headings</div></div>
+    <div class="row"><div class="label">PURPOSE</div><div>Define six levels of section headings for page structure.</div></div>
+    <div class="row"><div class="label">SYNTAX</div><div><code>&lt;h1&gt;Title&lt;/h1&gt;</code><div class="attrs">Attributes: id</div></div></div>
+    <div class="row"><div class="label">OUTPUT</div>
+      <div class="out">
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <h4>Heading 4</h4>
+        <h5>Heading 5</h5>
+        <h6>Heading 6</h6>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="tag">
+    <div class="row"><div class="label">TAG</div><div class="tag-value"><code>&lt;p&gt;</code></div></div>
+    <div class="row"><div class="label">NAME</div><div class="name-value">Paragraph</div></div>
+    <div class="row"><div class="label">PURPOSE</div><div>Wraps a block of text as a paragraph with automatic spacing.</div></div>
+    <div class="row"><div class="label">SYNTAX</div><div><code>&lt;p&gt;Text&lt;/p&gt;</code><div class="attrs">Attributes: class, id</div></div></div>
+    <div class="row"><div class="label">OUTPUT</div>
+      <div class="out">
+        <p>This is the first paragraph.</p>
+        <p>This is the second paragraph, with spacing added automatically.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="tag">
+    <div class="row"><div class="label">TAG</div><div class="tag-value"><code>&lt;br&gt;</code></div></div>
+    <div class="row"><div class="label">NAME</div><div class="name-value">Line Break</div></div>
+    <div class="row"><div class="label">PURPOSE</div><div>Inserts a single line break inside text (self-closing).</div></div>
+    <div class="row"><div class="label">SYNTAX</div><div><code>Line 1&lt;br&gt;Line 2</code><div class="attrs">Attributes: None</div></div></div>
+    <div class="row"><div class="label">OUTPUT</div>
+      <div class="out">Line 1<br>Line 2</div>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="tag">
+    <div class="row"><div class="label">TAG</div><div class="tag-value"><code>&lt;hr&gt;</code></div></div>
+    <div class="row"><div class="label">NAME</div><div class="name-value">Thematic Break</div></div>
+    <div class="row"><div class="label">PURPOSE</div><div>Draws a horizontal line to signal a thematic section break.</div></div>
+    <div class="row"><div class="label">SYNTAX</div><div><code>&lt;hr&gt;</code><div class="attrs">Attributes: None (styled with CSS)</div></div></div>
+    <div class="row"><div class="label">OUTPUT</div>
+      <div class="out">
+        Above the line
+        <hr>
+        Below the line
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="tag">
+    <div class="row"><div class="label">TAG</div><div class="tag-value"><code>&lt;strong&gt;</code></div></div>
+    <div class="row"><div class="label">NAME</div><div class="name-value">Strong Importance</div></div>
+    <div class="row"><div class="label">PURPOSE</div><div>Semantically marks text as having strong importance (bold).</div></div>
+    <div class="row"><div class="label">SYNTAX</div><div><code>&lt;strong&gt;Warning&lt;/strong&gt;</code><div class="attrs">Attributes: Global attributes</div></div></div>
+    <div class="row"><div class="label">OUTPUT</div>
+      <div class="out"><strong>Warning</strong></div>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="tag">
+    <div class="row"><div class="label">TAG</div><div class="tag-value"><code>&lt;em&gt;</code></div></div>
+    <div class="row"><div class="label">NAME</div><div class="name-value">Emphasis</div></div>
+    <div class="row"><div class="label">PURPOSE</div><div>Marks text with stress emphasis and changes meaning (italics).</div></div>
+    <div class="row"><div class="label">SYNTAX</div><div><code>&lt;em&gt;actually&lt;/em&gt;</code><div class="attrs">Attributes: Global attributes</div></div></div>
+    <div class="row"><div class="label">OUTPUT</div>
+      <div class="out">I <em>actually</em> did read it.</div>
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="tag">
+    <div class="row"><div class="label">TAG</div><div class="tag-value"><code>&lt;a&gt;</code></div></div>
+    <div class="row"><div class="label">NAME</div><div class="name-value">Hyperlink</div></div>
+    <div class="row"><div class="label">PURPOSE</div><div>Creates a hyperlink to another page, file, or location.</div></div>
+    <div class="row"><div class="label">SYNTAX</div><div><code>&lt;a href="URL"&gt;Link&lt;/a&gt;</code><div class="attrs">Attributes: href, target="_blank", title</div></div></div>
+    <div class="row"><div class="label">OUTPUT</div>
+      <div class="out"><a href="https://www.example.com" target="_blank" title="Example website">Link</a></div>
+    </div>
+  </div>
+
+  <!-- 8 -->
+  <div class="tag">
+    <div class="row"><div class="label">TAG</div><div class="tag-value"><code>&lt;img&gt;</code></div></div>
+    <div class="row"><div class="label">NAME</div><div class="name-value">Image</div></div>
+    <div class="row"><div class="label">PURPOSE</div><div>Embeds an image into the page (self-closing).</div></div>
+    <div class="row"><div class="label">SYNTAX</div><div><code>&lt;img src="file.jpg" alt="Desc"&gt;</code><div class="attrs">Attributes: src, alt, width, height</div></div></div>
+    <div class="row"><div class="label">OUTPUT</div>
+      <div class="out">
+        <img src="https://via.placeholder.com/150" alt="Placeholder Image" width="150" height="150">
+      </div>
+    </div>
+  </div>
+
+  <!-- 9 -->
+  <div class="tag">
+    <div class="row"><div class="label">TAG</div><div class="tag-value"><code>&lt;ul&gt;</code></div></div>
+    <div class="row"><div class="label">NAME</div><div class="name-value">Unordered List</div></div>
+    <div class="row"><div class="label">PURPOSE</div><div>Creates a bulleted list where order does not matter.</div></div>
+    <div class="row"><div class="label">SYNTAX</div><div><code>&lt;ul&gt;&lt;li&gt;Item&lt;/li&gt;&lt;/ul&gt;</code><div class="attrs">Attributes: class, id</div></div></div>
+    <div class="row"><div class="label">OUTPUT</div>
+      <div class="out">
+        <ul>
+          <li>Item one</li>
+          <li>Item two</li>
+          <li>Item three</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10 -->
+  <div class="tag">
+    <div class="row"><div class="label">TAG</div><div class="tag-value"><code>&lt;ol&gt;</code></div></div>
+    <div class="row"><div class="label">NAME</div><div class="name-value">Ordered List</div></div>
+    <div class="row"><div class="label">PURPOSE</div><div>Creates a numbered list when sequence or ranking matters.</div></div>
+    <div class="row"><div class="label">SYNTAX</div><div><code>&lt;ol&gt;&lt;li&gt;Step&lt;/li&gt;&lt;/ol&gt;</code><div class="attrs">Attributes: start, type, reversed</div></div></div>
+    <div class="row"><div class="label">OUTPUT</div>
+      <div class="out">
+        <ol>
+          <li>Step one</li>
+          <li>Step two</li>
+          <li>Step three</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- 11 -->
+  <div class="tag">
+    <div class="row"><div class="label">TAG</div><div class="tag-value"><code>&lt;li&gt;</code></div></div>
+    <div class="row"><div class="label">NAME</div><div class="name-value">List Item</div></div>
+    <div class="row"><div class="label">PURPOSE</div><div>Defines a single item inside a list (&lt;ul&gt;, &lt;ol&gt;, or &lt;menu&gt;).</div></div>
+    <div class="row"><div class="label">SYNTAX</div><div><code>&lt;li&gt;Item text&lt;/li&gt;</code><div class="attrs">Attributes: value</div></div></div>
+    <div class="row"><div class="label">OUTPUT</div>
+      <div class="out">
+        <ul>
+          <li>Item text</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 12 -->
+  <div class="tag">
+    <div class="row"><div class="label">TAG</div><div class="tag-value"><code>&lt;table&gt;</code></div></div>
+    <div class="row"><div class="label">NAME</div><div class="name-value">Table Container</div></div>
+    <div class="row"><div class="label">PURPOSE</div><div>Defines a data table as a grid of rows and columns.</div></div>
+    <div class="row"><div class="label">SYNTAX</div><div><code>&lt;table&gt;...&lt;/table&gt;</code><div class="attrs">Attributes: border (legacy)</div></div></div>
+    <div class="row"><div class="label">OUTPUT</div>
+      <div class="out">
+        <table border="1" cellpadding="6" cellspacing="0">
+          <tr><th>Name</th><th>Age</th></tr>
+          <tr><td>Asha</td><td>21</td></tr>
+          <tr><td>Ravi</td><td>23</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 13 -->
+  <div class="tag">
+    <div class="row"><div class="label">TAG</div><div class="tag-value"><code>&lt;tr&gt;</code></div></div>
+    <div class="row"><div class="label">NAME</div><div class="name-value">Table Row</div></div>
+    <div class="row"><div class="label">PURPOSE</div><div>Defines one horizontal row inside a table.</div></div>
+    <div class="row"><div class="label">SYNTAX</div><div><code>&lt;tr&gt;&lt;td&gt;Cell&lt;/td&gt;&lt;/tr&gt;</code><div class="attrs">Attributes: Global attributes</div></div></div>
+    <div class="row"><div class="label">OUTPUT</div>
+      <div class="out">
+        <table border="1" cellpadding="6" cellspacing="0">
+          <tr><td>Cell</td><td>Cell</td><td>Cell</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 14 -->
+  <div class="tag">
+    <div class="row"><div class="label">TAG</div><div class="tag-value"><code>&lt;td&gt;</code></div></div>
+    <div class="row"><div class="label">NAME</div><div class="name-value">Standard Cell</div></div>
+    <div class="row"><div class="label">PURPOSE</div><div>Defines a single standard data cell inside a table row.</div></div>
+    <div class="row"><div class="label">SYNTAX</div><div><code>&lt;td&gt;Data&lt;/td&gt;</code><div class="attrs">Attributes: colspan, rowspan</div></div></div>
+    <div class="row"><div class="label">OUTPUT</div>
+      <div class="out">
+        <table border="1" cellpadding="6" cellspacing="0">
+          <tr><td colspan="2">Data (spans 2 columns)</td></tr>
+          <tr><td>Data</td><td>Data</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 15 -->
+  <div class="tag">
+    <div class="row"><div class="label">TAG</div><div class="tag-value"><code>&lt;th&gt;</code></div></div>
+    <div class="row"><div class="label">NAME</div><div class="name-value">Header Cell</div></div>
+    <div class="row"><div class="label">PURPOSE</div><div>Defines a header cell for a table column or row (bold &amp; centered).</div></div>
+    <div class="row"><div class="label">SYNTAX</div><div><code>&lt;th&gt;Header&lt;/th&gt;</code><div class="attrs">Attributes: scope</div></div></div>
+    <div class="row"><div class="label">OUTPUT</div>
+      <div class="out">
+        <table border="1" cellpadding="6" cellspacing="0">
+          <tr><th scope="col">Header</th><th scope="col">Header</th></tr>
+          <tr><td>Data</td><td>Data</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</BODY>
+</html>
