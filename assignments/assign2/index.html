@@ -1,26 +1,219 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CampusConnect - Student Registration Portal</title>
-    <link rel="stylesheet" href="style.css">
+
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #333;
+            --border-color: #ccc;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 0 0 10px 0;
+            font-size: 2.2rem;
+        }
+
+        .highlight-box {
+            background-color: #e8f4fd;
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            font-weight: 600;
+            color: #2980b9;
+        }
+
+        fieldset {
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        legend {
+            font-weight: bold;
+            color: var(--primary-color);
+            padding: 0 10px;
+            font-size: 1.1rem;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.row {
+            flex-direction: row;
+            gap: 20px;
+        }
+
+        .form-group.row > div {
+            flex: 1;
+            min-width: 0;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="password"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+
+        input[type="file"] {
+            padding: 5px 0;
+        }
+
+        .checkbox-group, .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding-top: 5px;
+        }
+
+        .checkbox-group label, .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: normal;
+            cursor: pointer;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 20px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        button[type="submit"] {
+            background-color: #2ecc71;
+            color: white;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #27ae60;
+        }
+
+        button[type="reset"] {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        button[type="reset"]:hover {
+            background-color: #c0392b;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+
+        @media (max-width: 600px) {
+            .form-group.row {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .container {
+                padding: 18px;
+            }
+
+            .form-actions {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
 </head>
+
 <body>
+
     <div class="container">
+
         <header>
             <h1>CampusConnect</h1>
             <p>Student Information Collection Portal</p>
         </header>
-        <section class="highlight-box">
-            <p>Important Notice: Please ensure all personal, academic, and contact details match your official documents before submitting the registration form.</p>
-        </section>
 
-        <form action="#" method="POST" enctype="multipart/form-data">
-            
-            <!-- SECTION 1: Personal & Contact Details -->
+        <form id="registrationForm" onsubmit="return validateForm(event)">
+
             <fieldset>
                 <legend>Personal & Contact Information</legend>
+
                 <div class="form-group">
                     <label for="fullName">Full Name <span class="required">*</span></label>
                     <input type="text" id="fullName" name="fullName" placeholder="Enter your name" required>
@@ -31,6 +224,7 @@
                         <label for="dob">Date of Birth <span class="required">*</span></label>
                         <input type="date" id="dob" name="dob" required>
                     </div>
+
                     <div>
                         <label for="gender">Gender <span class="required">*</span></label>
                         <select id="gender" name="gender" required>
@@ -48,6 +242,7 @@
                         <label for="email">Email Address <span class="required">*</span></label>
                         <input type="email" id="email" name="email" placeholder="xyz@gmail.com" required>
                     </div>
+
                     <div>
                         <label for="mobile">Mobile Number <span class="required">*</span></label>
                         <input type="tel" id="mobile" name="mobile" placeholder="10-digit mobile number" pattern="[0-9]{10}" required>
@@ -59,6 +254,7 @@
                         <label for="password">Password <span class="required">*</span></label>
                         <input type="password" id="password" name="password" minlength="8" required>
                     </div>
+
                     <div>
                         <label for="confirmPassword">Confirm Password <span class="required">*</span></label>
                         <input type="password" id="confirmPassword" name="confirmPassword" minlength="8" required>
@@ -69,9 +265,9 @@
                     <label for="profilePhoto">Profile Photo <span class="required">*</span></label>
                     <input type="file" id="profilePhoto" name="profilePhoto" accept="image/*" required>
                 </div>
+
             </fieldset>
 
-            <!-- SECTION 2: Academic Information -->
             <fieldset>
                 <legend>Academic Information</legend>
 
@@ -94,6 +290,7 @@
                             <option value="mtech">MTECH</option>
                         </select>
                     </div>
+
                     <div>
                         <label for="semester">Semester <span class="required">*</span></label>
                         <select id="semester" name="semester" required>
@@ -117,6 +314,7 @@
 
                 <div class="form-group">
                     <label>Preferred Subjects <span class="required">*</span> (Select all that apply)</label>
+
                     <div class="checkbox-group">
                         <label><input type="checkbox" name="subjects" value="ds"> Data Structures</label>
                         <label><input type="checkbox" name="subjects" value="dbms"> DBMS</label>
@@ -130,15 +328,16 @@
 
                 <div class="form-group">
                     <label>Mode of Study <span class="required">*</span></label>
+
                     <div class="radio-group">
                         <label><input type="radio" name="studyMode" value="regular" checked required> Regular</label>
-                        <label><input type="radio" name="studyMode" value="distance">Distance Learning</label>
-                        <label><input type="radio" name="studyMode" value="hybrid">Hybrid</label>
+                        <label><input type="radio" name="studyMode" value="hybrid"> Hybrid</label>
+                        <label><input type="radio" name="studyMode" value="distance"> Distance</label>
                     </div>
                 </div>
+
             </fieldset>
 
-            <!-- SECTION 3: Additional Information -->
             <fieldset>
                 <legend>Additional Information</legend>
 
@@ -152,10 +351,12 @@
                         <label for="city">City <span class="required">*</span></label>
                         <input type="text" id="city" name="city" placeholder="e.g. New Delhi" required>
                     </div>
+
                     <div>
                         <label for="state">State <span class="required">*</span></label>
                         <input type="text" id="state" name="state" placeholder="e.g. Delhi" required>
                     </div>
+
                     <div>
                         <label for="pinCode">PIN Code <span class="required">*</span></label>
                         <input type="text" id="pinCode" name="pinCode" placeholder="6-digit code" pattern="[0-9]{6}" required>
@@ -163,21 +364,47 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="statement">Why do you want to join this programme? <span class="required">*</span></label>
-                    <textarea id="statement" name="statement" placeholder="Briefly describe your motivation..." required></textarea>
+                    <label for="statement">Why do you want to join this programme?</label>
+                    <textarea id="statement" name="statement" ></textarea>
                 </div>
+
             </fieldset>
 
             <div class="form-actions">
                 <button type="reset">Reset Form</button>
                 <button type="submit">Submit Registration</button>
             </div>
+
         </form>
 
-        <footer>
-            <p>&copy; 2026 CampusConnect Portal. All Rights Reserved.</p>
-        </footer>
     </div>
+
+    <script>
+        function validateForm(event) {
+
+            event.preventDefault();
+
+            const subjects = document.querySelectorAll('input[name="subjects"]:checked');
+
+            if (subjects.length === 0) {
+                alert("Please select at least one preferred subject!");
+                return false;
+            }
+
+        
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match! Please try again.");
+                return false;
+            }
+
+            alert("Registration Submitted Successfully!");
+
+            return false;
+        }
+    </script>
 
 </body>
 </html>
