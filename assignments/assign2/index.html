@@ -7,15 +7,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <div class="container">
         <header>
             <h1>CampusConnect</h1>
             <p>Student Information Collection Portal</p>
         </header>
-
         <section class="highlight-box">
-            <p>Important Notice: Please ensure all personal, academic, and contact details match your official legal documents before submitting the registration form.</p>
+            <p>Important Notice: Please ensure all personal, academic, and contact details match your official documents before submitting the registration form.</p>
         </section>
 
         <form action="#" method="POST" enctype="multipart/form-data">
@@ -23,10 +21,9 @@
             <!-- SECTION 1: Personal & Contact Details -->
             <fieldset>
                 <legend>Personal & Contact Information</legend>
-                
                 <div class="form-group">
                     <label for="fullName">Full Name <span class="required">*</span></label>
-                    <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                    <input type="text" id="fullName" name="fullName" placeholder="Enter your name" required>
                 </div>
 
                 <div class="form-group row">
@@ -49,7 +46,7 @@
                 <div class="form-group row">
                     <div>
                         <label for="email">Email Address <span class="required">*</span></label>
-                        <input type="email" id="email" name="email" placeholder="example@college.com" required>
+                        <input type="email" id="email" name="email" placeholder="xyz@gmail.com" required>
                     </div>
                     <div>
                         <label for="mobile">Mobile Number <span class="required">*</span></label>
@@ -90,9 +87,11 @@
                             <option value="" disabled selected>Select Course</option>
                             <option value="btech">B.Tech (Computer Science)</option>
                             <option value="bca">BCA</option>
-                            <option value="bsc">B.Sc (Information Technology)</option>
-                            <option value="mca">MCA</option>
-                            <option value="mtech">M.Tech</option>
+                            <option value="bsc">B.Sc Hons. Computer Science</option>
+                            <option value="bms">BMS</option>
+                            <option value="bba">BBA-FIA</option>
+                            <option value="mba">MBA</option>
+                            <option value="mtech">MTECH</option>
                         </select>
                     </div>
                     <div>
@@ -124,15 +123,17 @@
                         <label><input type="checkbox" name="subjects" value="ai"> Artificial Intelligence</label>
                         <label><input type="checkbox" name="subjects" value="webdev"> Web Development</label>
                         <label><input type="checkbox" name="subjects" value="cn"> Computer Networks</label>
+                        <label><input type="checkbox" name="subjects" value="os"> Operating Systems</label>
+                        <label><input type="checkbox" name="subjects" value="se"> Software Engineering</label>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label>Mode of Study <span class="required">*</span></label>
                     <div class="radio-group">
-                        <label><input type="radio" name="studyMode" value="regular" checked required> Regular (On-Campus)</label>
-                        <label><input type="radio" name="studyMode" value="distance"> Distance Learning</label>
-                        <label><input type="radio" name="studyMode" value="hybrid"> Hybrid</label>
+                        <label><input type="radio" name="studyMode" value="regular" checked required> Regular</label>
+                        <label><input type="radio" name="studyMode" value="distance">Distance Learning</label>
+                        <label><input type="radio" name="studyMode" value="hybrid">Hybrid</label>
                     </div>
                 </div>
             </fieldset>
@@ -143,7 +144,7 @@
 
                 <div class="form-group">
                     <label for="address">Permanent Address <span class="required">*</span></label>
-                    <textarea id="address" name="address" placeholder="Enter complete house address, street, locality..." required></textarea>
+                    <textarea id="address" name="address" placeholder="Enter your complete Home Address" required></textarea>
                 </div>
 
                 <div class="form-group row">
