@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Memory Card Game</title>
+
+<style>
+body{
+  font-family:Arial, sans-serif;
+  background-color:#fdf1df;
+  margin:0;
+  padding:20px;
+}
+
+h1{
+  background-color:#8b4513;
+  color:white;
+  text-align:center;
+  padding:20px;
+  margin:0;
+  border-radius:8px;
+}
+
+.container{
+  width:90%;
+  max-width:550px;
+  margin:25px auto;
+  background:#fffaf0;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 4px 15px rgba(90,50,20,0.2);
+  text-align:center;
+}
+
+.instruction{
+  color:#8b4513;
+  font-size:19px;
+  font-weight:bold;
+  margin:20px 0;
+}
+
+.emoji-section{
+  background:#fce8d5;
+  border:2px solid #d6a77a;
+  border-radius:8px;
+  padding:12px;
+  margin:20px auto;
+  max-width:350px;
+}
+
+.emoji-section h3{
+  color:#8b4513;
+  margin:5px 0 12px;
+  font-size:16px;
+}
+
+.emoji-list{
+  display:flex;
+  justify-content:center;
+  gap:22px;
+  font-size:25px;
+}
+
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:12px;
+  max-width:420px;
+  margin:20px auto;
+}
+
+.card{
+  height:95px;
+  background:#e8c6a5;
+  border:2px solid #c58b5b;
+  border-radius:10px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:35px;
+  font-weight:bold;
+  box-shadow:0 3px 6px rgba(90,50,20,0.15);
+  transition:0.3s;
+  color:#8b4513;
+}
+
+.card:hover{
+  background:#d6a77a;
+  transform:scale(1.07);
+  cursor:pointer;
+}
+
+.hidden{
+  background:#e8c6a5;
+  color:#8b4513;
+}
+
+.matched{
+  background:#bbd7a5;
+  border:3px solid #386641;
+  color:#386641;
+}
+
+.matched:hover{
+  background:#a3c78c;
+}
+
+.message{
+  background:#dce8d5;
+  color:#386641;
+  padding:15px;
+  border-radius:8px;
+  font-size:18px;
+  font-weight:bold;
+  margin:25px 0;
+}
+
+button{
+  background:#386641;
+  color:white;
+  padding:12px 25px;
+  border:none;
+  border-radius:7px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  background:#274c32;
+  transform:scale(1.05);
+}
+
+@media(max-width:500px){
+  .container{
+    padding:15px;
+  }
+
+  .card{
+    height:70px;
+    font-size:27px;
+  }
+
+  .card-grid{
+    gap:8px;
+  }
+
+  .instruction{
+    font-size:17px;
+  }
+
+  .emoji-list{
+    gap:15px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<h1>Memory Card Game</h1>
+
+<div class="container">
+
+<p class="instruction">
+Find the matching pairs!
+</p>
+
+<div class="emoji-section">
+<h3>Emoji Collection</h3>
+<div class="emoji-list">
+<span>🥀</span>
+<span>🗣️</span>
+<span>💀</span>
+<span>🫂</span>
+</div>
+</div>
+
+<div class="card-grid">
+
+<div class="card matched">🥀</div>
+<div class="card hidden">?</div>
+<div class="card hidden">?</div>
+<div class="card hidden">?</div>
+
+<div class="card hidden">?</div>
+<div class="card matched">🥀</div>
+<div class="card hidden">?</div>
+<div class="card hidden">?</div>
+
+</div>
+
+<div class="message">
+Congratulations! You found a match!
+</div>
+
+<button>Restart Game</button>
+
+</div>
+
+</body>
+</html>
