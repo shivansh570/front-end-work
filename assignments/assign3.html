@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tic-Tac-Toe</title>
+
+<style>
+body{
+  font-family: Arial, sans-serif;
+  background-color: #fdf1df;
+  margin:0;
+  padding:20px;
+}
+
+h1{
+  background-color: #8b4513;
+  color:white;
+  text-align:center;
+  padding:20px;
+  margin:0;
+  border-radius:8px;
+}
+
+.container{
+  width:90%;
+  max-width:550px;
+  margin:25px auto;
+  background:#fffaf0;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 4px 15px rgba(90,50,20,0.2);
+}
+
+.players{
+  display:flex;
+  justify-content:space-around;
+  gap:15px;
+  margin-bottom:25px;
+}
+
+.player{
+  width:45%;
+  text-align:center;
+  padding:15px;
+  border:2px solid #d6a77a;
+  border-radius:8px;
+  background:#fce8d5;
+}
+
+.player h2{
+  font-size:18px;
+  margin:5px;
+}
+
+.player p{
+  margin:5px;
+  color:#555;
+}
+
+.x{
+  color:#2563eb;
+  font-weight:bold;
+}
+
+.o{
+  color:#dc2626;
+  font-weight:bold;
+}
+
+h2{
+  text-align:center;
+  color:#8b4513;
+}
+
+.game-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:10px;
+  max-width:350px;
+  margin:20px auto;
+}
+
+.cell{
+  height:100px;
+  background:#f5e6d3;
+  border:2px solid #c58b5b;
+  border-radius:8px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:40px;
+  font-weight:bold;
+  box-shadow:0 2px 5px rgba(90,50,20,0.1);
+  transition:0.3s;
+}
+
+.cell:hover{
+  background:#f2d2b6;
+  transform:scale(1.05);
+}
+
+.winning{
+  background:#bbd7a5;
+  border:3px solid #386641;
+}
+
+.winning:hover{
+  background:#a3c78c;
+}
+
+.message{
+  text-align:center;
+  background:#dce8d5;
+  color:#386641;
+  padding:12px;
+  border-radius:8px;
+  font-size:20px;
+  font-weight:bold;
+  margin:20px 0;
+}
+
+.buttons{
+  text-align:center;
+  margin-top:20px;
+}
+
+button{
+  padding:12px 22px;
+  margin:5px;
+  border:none;
+  border-radius:6px;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.new-game{
+  background:#386641;
+  color:white;
+}
+
+.reset{
+  background:#e8c6a5;
+  color:#5c3317;
+}
+
+.new-game:hover{
+  background:#274c32;
+}
+
+.reset:hover{
+  background:#d6a77a;
+}
+
+@media(max-width:500px){
+  .container{
+    padding:15px;
+  }
+
+  .cell{
+    height:75px;
+    font-size:32px;
+  }
+
+  .player h2{
+    font-size:16px;
+  }
+
+  button{
+    padding:10px 15px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<h1>Tic-Tac-Toe</h1>
+
+<div class="container">
+
+<div class="players">
+
+<div class="player">
+<h2>Shivansh</h2>
+<p class="x">Symbol: X</p>
+<p>Blue</p>
+</div>
+
+<div class="player">
+<h2>Ansh</h2>
+<p class="o">Symbol: O</p>
+<p>Red</p>
+</div>
+
+</div>
+
+<h2>Game Board</h2>
+
+<div class="game-grid">
+
+<div class="cell winning"><span class="x">X</span></div>
+<div class="cell"><span class="x">X</span></div>
+<div class="cell"><span class="o">O</span></div>
+
+<div class="cell winning"><span class="x">X</span></div>
+<div class="cell"><span class="o">O</span></div>
+<div class="cell"></div>
+
+<div class="cell winning"><span class="x">X</span></div>
+<div class="cell"><span class="o">O</span></div>
+<div class="cell"></div>
+
+</div>
+
+<div class="message">
+Shivansh Wins!
+</div>
+
+<div class="buttons">
+<button class="new-game">New Game</button>
+<button class="reset">Reset</button>
+</div>
+
+</div>
+
+</body>
+</html>
