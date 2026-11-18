@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Registration Form</title>
+
+<style>
+body{
+  font-family:Arial, sans-serif;
+  background-color:#fdf1df;
+  margin:0;
+  padding:20px;
+}
+
+h1{
+  background-color:#8b4513;
+  color:white;
+  text-align:center;
+  padding:20px;
+  margin:0;
+  border-radius:8px;
+}
+
+.container{
+  width:90%;
+  max-width:450px;
+  margin:25px auto;
+  background:#fffaf0;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 4px 15px rgba(90,50,20,0.2);
+}
+
+label{
+  display:block;
+  margin:15px 0 7px;
+  color:#8b4513;
+  font-weight:bold;
+}
+
+input, select{
+  width:100%;
+  box-sizing:border-box;
+  padding:11px;
+  border:2px solid #d6a77a;
+  border-radius:6px;
+  font-size:15px;
+}
+
+.error{
+  color:red;
+  font-size:13px;
+  margin-top:5px;
+}
+
+button{
+  width:100%;
+  padding:12px;
+  margin-top:20px;
+  background:#386641;
+  color:white;
+  border:none;
+  border-radius:6px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#274c32;
+}
+
+.success{
+  color:#386641;
+  background:#dce8d5;
+  padding:12px;
+  border-radius:6px;
+  text-align:center;
+  font-weight:bold;
+  margin-top:15px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Student Registration Form</h1>
+
+<div class="container">
+
+<form id="registrationForm" onsubmit="return validateForm()">
+
+<label>Student Name:</label>
+<input type="text" id="name">
+<div class="error" id="nameError"></div>
+
+<label>Email Address:</label>
+<input type="text" id="email">
+<div class="error" id="emailError"></div>
+
+<label>Mobile Number:</label>
+<input type="text" id="mobile">
+<div class="error" id="mobileError"></div>
+
+<label>Password:</label>
+<input type="password" id="password">
+<div class="error" id="passwordError"></div>
+
+<label>Confirm Password:</label>
+<input type="password" id="confirmPassword">
+<div class="error" id="confirmPasswordError"></div>
+
+<label>Age:</label>
+<input type="number" id="age">
+<div class="error" id="ageError"></div>
+
+<label>Gender:</label>
+<select id="gender">
+<option value="">Select Gender</option>
+<option value="Male">Male</option>
+<option value="Female">Female</option>
+<option value="Other">Other</option>
+</select>
+<div class="error" id="genderError"></div>
+
+<button type="submit">Register</button>
+
+<div id="successMessage"></div>
+
+</form>
+
+</div>
+
+<script>
+
+function validateForm(){
+
+  let name = document.getElementById("name").value.trim();
+  let email = document.getElementById("email").value.trim();
+  let mobile = document.getElementById("mobile").value.trim();
+  let password = document.getElementById("password").value;
+  let confirmPassword = document.getElementById("confirmPassword").value;
+  let age = document.getElementById("age").value;
+  let gender = document.getElementById("gender").value;
+
+  let valid = true;
+
+  document.querySelectorAll(".error").forEach(function(element){
+    element.innerHTML = "";
+  });
+
+  document.getElementById("successMessage").innerHTML = "";
+
+  if(name === ""){
+    document.getElementById("nameError").innerHTML = "Please enter your name.";
+    valid = false;
+  }
+
+  if(email === ""){
+    document.getElementById("emailError").innerHTML = "Please enter your email.";
+    valid = false;
+  }
+  else if(!/^(?!.*\.\.)[a-zA-Z0-9](?:[a-zA-Z0-9.]{4,28}[a-zA-Z0-9])@gmail\.com$/i.test(email)){
+    document.getElementById("emailError").innerHTML = "Please enter a valid Gmail address (example@gmail.com).";
+    valid = false;
+  }
+
+  if(mobile === ""){
+    document.getElementById("mobileError").innerHTML = "Please enter your mobile number.";
+    valid = false;
+  }
+  else if(!/^[0-9]{10}$/.test(mobile)){
+    document.getElementById("mobileError").innerHTML = "Mobile number must contain exactly 10 digits.";
+    valid = false;
+  }
+
+  if(password === ""){
+    document.getElementById("passwordError").innerHTML = "Please enter a password.";
+    valid = false;
+  }
+  else if(password.length < 8){
+    document.getElementById("passwordError").innerHTML = "Password must contain at least 8 characters.";
+    valid = false;
+  }
+
+  if(confirmPassword === ""){
+    document.getElementById("confirmPasswordError").innerHTML = "Please confirm your password.";
+    valid = false;
+  }
+  else if(password !== confirmPassword){
+    document.getElementById("confirmPasswordError").innerHTML = "Passwords do not match.";
+    valid = false;
+  }
+
+  if(age === ""){
+    document.getElementById("ageError").innerHTML = "Please enter your age.";
+    valid = false;
+  }
+  else if(Number(age) < 18){
+    document.getElementById("ageError").innerHTML = "Student must be at least 18 years old.";
+    valid = false;
+  }
+
+  if(gender === ""){
+    document.getElementById("genderError").innerHTML = "Please select your gender.";
+    valid = false;
+  }
+
+  if(valid){
+    document.getElementById("successMessage").innerHTML =
+    "<div class='success'>Registration Successful!</div>";
+  }
+
+  return false;
+}
+
+</script>
+
+</body>
+</html>
