@@ -1,420 +1,199 @@
-
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator</title>
 
-    <title>General Knowledge Quiz</title>
+<style>
+body{
+  font-family:Arial, sans-serif;
+  background-color:#fdf1df;
+  margin:0;
+  padding:20px;
+}
 
-    <style>
+h1{
+  background-color:#8b4513;
+  color:white;
+  text-align:center;
+  padding:20px;
+  margin:0;
+  border-radius:8px;
+}
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #eef2ff;
-            margin: 0;
-            padding: 30px 15px;
-            color: #1e293b;
-        }
+.container{
+  width:90%;
+  max-width:400px;
+  margin:30px auto;
+  background:#fffaf0;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 4px 15px rgba(90,50,20,0.2);
+}
 
-        .quiz-container {
-            max-width: 650px;
-            margin: 50px auto;
-            padding: 35px;
-            background-color: white;
-            border-radius: 16px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.10);
-            text-align: center;
-        }
+label{
+  display:block;
+  margin:15px 0 7px;
+  color:#8b4513;
+  font-weight:bold;
+}
 
-        h1 {
-            color: #4338ca;
-            font-size: 30px;
-            margin-bottom: 10px;
-        }
+input{
+  width:100%;
+  box-sizing:border-box;
+  padding:12px;
+  border:2px solid #d6a77a;
+  border-radius:6px;
+  font-size:16px;
+}
 
-        .subtitle {
-            color: #64748b;
-            margin-bottom: 30px;
-        }
+.buttons{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:20px;
+}
 
-        .quiz-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            font-weight: bold;
-        }
+button{
+  padding:12px;
+  border:none;
+  border-radius:6px;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
 
-        #timer {
-            color: #dc2626;
-            background-color: #fee2e2;
-            padding: 9px 14px;
-            border-radius: 8px;
-        }
+button:hover{
+  transform:scale(1.04);
+}
 
-        .progress-bar {
-            height: 9px;
-            background-color: #e2e8f0;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            overflow: hidden;
-        }
+.add{
+  background:#386641;
+  color:white;
+}
 
-        #progress {
-            width: 10%;
-            height: 100%;
-            background-color: #4f46e5;
-            transition: width 0.3s;
-        }
+.subtract{
+  background:#c58b5b;
+  color:white;
+}
 
-        #question {
-            font-size: 21px;
-            margin-bottom: 25px;
-            line-height: 1.5;
-            text-align: left;
-        }
+.multiply{
+  background:#8b4513;
+  color:white;
+}
 
-        #options {
-            display: flex;
-            flex-direction: column;
-            gap: 13px;
-        }
+.divide{
+  background:#6b705c;
+  color:white;
+}
 
-        .option {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 15px;
-            border: 1px solid #cbd5e1;
-            border-radius: 9px;
-            background-color: #f8fafc;
-            cursor: pointer;
-            text-align: left;
-        }
+.reset{
+  background:#e8c6a5;
+  color:#5c3317;
+  width:100%;
+  margin-top:12px;
+}
 
-        .option:hover {
-            background-color: #e0e7ff;
-            border-color: #6366f1;
-        }
-
-        .option:has(input:checked) {
-            background-color: #e0e7ff;
-            border-color: #4f46e5;
-        }
-
-        .option input {
-            accent-color: #4f46e5;
-            cursor: pointer;
-        }
-
-        #nextBtn {
-            width: 100%;
-            margin-top: 30px;
-            padding: 14px;
-            background-color: #4f46e5;
-            color: white;
-            border: none;
-            border-radius: 9px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        #nextBtn:hover {
-            background-color: #3730a3;
-        }
-
-        #result {
-            margin-top: 25px;
-            font-size: 20px;
-            font-weight: bold;
-            color: #15803d;
-            line-height: 1.7;
-        }
-
-        @media (max-width: 500px) {
-
-            .quiz-container {
-                padding: 22px 17px;
-                margin: 15px auto;
-            }
-
-            h1 {
-                font-size: 24px;
-            }
-
-            #question {
-                font-size: 18px;
-            }
-
-            .quiz-info {
-                font-size: 13px;
-            }
-
-        }
-
-    </style>
-
+.result{
+  background:#dce8d5;
+  color:#386641;
+  padding:15px;
+  border-radius:6px;
+  text-align:center;
+  font-size:18px;
+  font-weight:bold;
+  margin-top:20px;
+}
+</style>
 </head>
 
 <body>
 
-    <div class="quiz-container">
+<h1>Calculator</h1>
 
-        <h1>General Knowledge Quiz</h1>
+<div class="container">
 
-        <p class="subtitle">
-            Test your knowledge with these 10 questions!
-        </p>
+<label>Enter First Number:</label>
+<input type="number" id="num1" placeholder="Enter first number">
 
-        <div class="quiz-info">
+<label>Enter Second Number:</label>
+<input type="number" id="num2" placeholder="Enter second number">
 
-            <p id="questionNumber">Question 1 of 10</p>
+<div class="buttons">
 
-            <p id="timer">Time Left: 30s</p>
+<button class="add" onclick="add()">Addition (+)</button>
+<button class="subtract" onclick="subtract()">Subtraction (-)</button>
+<button class="multiply" onclick="multiply()">Multiplication (*)</button>
+<button class="divide" onclick="divide()">Division (/)</button>
 
-        </div>
+</div>
 
-        <div class="progress-bar">
-            <div id="progress"></div>
-        </div>
+<div class="result" id="result">
+Calculate
+</div>
 
-        <div id="questionBox">
+<button class="reset" onclick="reset()">Reset</button>
 
-            <h2 id="question">Question will appear here</h2>
+</div>
 
-            <div id="options"></div>
+<script>
 
-        </div>
+function getNumbers(){
+  let a = document.getElementById("num1").value;
+  let b = document.getElementById("num2").value;
 
-        <button id="nextBtn">Next Question</button>
+  if(a === "" || b === ""){
+    document.getElementById("result").innerHTML = "Please enter both numbers.";
+    return null;
+  }
 
-        <div id="result"></div>
+  return [Number(a), Number(b)];
+}
 
-    </div>
+function add(){
+  let numbers = getNumbers();
+  if(numbers === null) return;
 
+  let result = numbers[0] + numbers[1];
+  document.getElementById("result").innerHTML = "Result: " + result;
+}
 
-    <script>
+function subtract(){
+  let numbers = getNumbers();
+  if(numbers === null) return;
 
-        const questions = [
+  let result = numbers[0] - numbers[1];
+  document.getElementById("result").innerHTML = "Result: " + result;
+}
 
-            {
-                question: "Which is the capital of India?",
-                options: ["Mumbai", "New Delhi", "Kolkata", "Chennai"],
-                answer: 1
-            },
+function multiply(){
+  let numbers = getNumbers();
+  if(numbers === null) return;
 
-            {
-                question: "Which planet is known as the Red Planet?",
-                options: ["Earth", "Jupiter", "Mars", "Venus"],
-                answer: 2
-            },
+  let result = numbers[0] * numbers[1];
+  document.getElementById("result").innerHTML = "Result: " + result;
+}
 
-            {
-                question: "Who is known as the Father of the Nation in India?",
-                options: ["Jawaharlal Nehru", "Mahatma Gandhi", "Sardar Patel", "Subhas Chandra Bose"],
-                answer: 1
-            },
+function divide(){
+  let numbers = getNumbers();
+  if(numbers === null) return;
 
-            {
-                question: "How many days are there in a leap year?",
-                options: ["365", "366", "364", "360"],
-                answer: 1
-            },
+  if(numbers[1] === 0){
+    document.getElementById("result").innerHTML = "Cannot divide by zero!";
+    return;
+  }
 
-            {
-                question: "Which is the largest ocean in the world?",
-                options: ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
-                answer: 3
-            },
+  let result = numbers[0] / numbers[1];
+  document.getElementById("result").innerHTML = "Result: " + result;
+}
 
-            {
-                question: "Which gas do plants absorb from the atmosphere?",
-                options: ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
-                answer: 2
-            },
+function reset(){
+  document.getElementById("num1").value = "";
+  document.getElementById("num2").value = "";
+  document.getElementById("result").innerHTML = "Calculate";
+}
 
-            {
-                question: "Who wrote the Indian National Anthem?",
-                options: ["Rabindranath Tagore", "Bankim Chandra Chatterjee", "Sarojini Naidu", "Premchand"],
-                answer: 0
-            },
-
-            {
-                question: "Which is the smallest prime number?",
-                options: ["1", "2", "3", "5"],
-                answer: 1
-            },
-
-            {
-                question: "Which is the national animal of India?",
-                options: ["Lion", "Elephant", "Bengal Tiger", "Leopard"],
-                answer: 2
-            },
-
-            {
-                question: "How many continents are there in the world?",
-                options: ["5", "6", "7", "8"],
-                answer: 2
-            }
-
-        ];
-
-
-        let currentQuestion = 0;
-
-        let selectedAnswers = new Array(questions.length).fill(null);
-
-        let timeLeft = 30;
-        let timerInterval;
-
-
-        const questionNumber = document.getElementById("questionNumber");
-        const timer = document.getElementById("timer");
-        const question = document.getElementById("question");
-        const options = document.getElementById("options");
-        const nextBtn = document.getElementById("nextBtn");
-        const result = document.getElementById("result");
-        const progress = document.getElementById("progress");
-
-
-        function showQuestion() {
-
-            const q = questions[currentQuestion];
-
-            questionNumber.textContent =
-                "Question " + (currentQuestion + 1) + " of " + questions.length;
-
-            question.textContent = q.question;
-
-            options.innerHTML = "";
-
-            q.options.forEach(function(option, index) {
-
-                const label = document.createElement("label");
-                label.className = "option";
-
-                const radio = document.createElement("input");
-
-                radio.type = "radio";
-                radio.name = "answer";
-                radio.value = index;
-
-                if (selectedAnswers[currentQuestion] === index) {
-                    radio.checked = true;
-                }
-
-                radio.addEventListener("change", function() {
-                    selectedAnswers[currentQuestion] = index;
-                });
-
-                const text = document.createElement("span");
-                text.textContent = option;
-
-                label.appendChild(radio);
-                label.appendChild(text);
-
-                options.appendChild(label);
-
-            });
-
-            progress.style.width =
-                ((currentQuestion + 1) / questions.length) * 100 + "%";
-
-            if (currentQuestion === questions.length - 1) {
-                nextBtn.textContent = "Submit Quiz";
-            } else {
-                nextBtn.textContent = "Next Question";
-            }
-
-            startTimer();
-
-        }
-
-
-        function startTimer() {
-
-            clearInterval(timerInterval);
-
-            timeLeft = 30;
-
-            timer.textContent = "Time Left: " + timeLeft + "s";
-
-            timerInterval = setInterval(function() {
-
-                timeLeft--;
-
-                timer.textContent = "Time Left: " + timeLeft + "s";
-
-                if (timeLeft <= 0) {
-
-                    clearInterval(timerInterval);
-
-                    goToNextQuestion();
-
-                }
-
-            }, 1000);
-
-        }
-
-
-        function goToNextQuestion() {
-
-            clearInterval(timerInterval);
-
-            if (currentQuestion === questions.length - 1) {
-
-                submitQuiz();
-
-            } else {
-
-                currentQuestion++;
-
-                showQuestion();
-
-            }
-
-        }
-
-
-        function submitQuiz() {
-
-            clearInterval(timerInterval);
-
-            let score = 0;
-
-            questions.forEach(function(q, index) {
-
-                if (selectedAnswers[index] === q.answer) {
-                    score++;
-                }
-
-            });
-
-            document.getElementById("questionBox").style.display = "none";
-
-            nextBtn.style.display = "none";
-
-            questionNumber.textContent = "Quiz Completed!";
-
-            timer.textContent = "Submitted";
-
-            result.innerHTML =
-                "Quiz Submitted Successfully!<br>" +
-                "Your Score: " + score + " / " + questions.length;
-
-        }
-
-
-        nextBtn.addEventListener("click", goToNextQuestion);
-
-
-        showQuestion();
-
-    </script>
+</script>
 
 </body>
 </html>
